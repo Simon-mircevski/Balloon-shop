@@ -1,0 +1,21 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Orders:</h1>
+
+<th:block th:if="${orders != null}" th:each="order: ${orders}">
+    <ul>
+        <li>Balloon Color: <th:block th:text="${order.getBalloonColor()}"/></li>
+        <li>Client Name: <th:block th:text="${order.getClientName()}"/></li>
+        <li>Client Address: <th:block th:text="${order.getClientAddress()}"/></li>
+    </ul>
+</th:block>
+
+<a href="/controller/balloon">Make a new Order</a>
+
+</body>
+</html>
