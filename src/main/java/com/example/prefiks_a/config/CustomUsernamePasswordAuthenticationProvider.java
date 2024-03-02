@@ -29,12 +29,12 @@ public class CustomUsernamePasswordAuthenticationProvider implements Authenticat
         String password = authentication.getCredentials().toString();
 
         if("".equals(username)|| "".equals(password)){
-            throw new BadCredentialsException("Invalid Credentials");
+            throw new BadCredentialsException("Invalid Credentials Exception caught");
         }
         UserDetails userDetails = this.authService.loadUserByUsername(username);
 
         if(!passwordEncoder.matches(password, userDetails.getPassword())){
-            throw new BadCredentialsException("Invalid Credentials");
+            throw new BadCredentialsException("Invalid Credentials Exception caught");
         }
 
         return new UsernamePasswordAuthenticationToken(userDetails, userDetails.getPassword(),
